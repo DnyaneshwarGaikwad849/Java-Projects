@@ -1,0 +1,80 @@
+
+#include<iostream>
+using namespace std;
+
+class Array
+{
+    public:
+        int iSize;
+        int *Arr;
+
+        Array(int iNo)    //Working of constructor
+        {
+            iSize = iNo;           //to initialise the characteristics
+            Arr = new int[iSize];  //to allocate the resource
+
+            cout<<"Memory allocated successfully.."<<"\n";
+        }
+
+        ~Array()
+        {
+            delete[]Arr;
+            cout<<"Memory deallocated successsfully.."<<"\n";
+        }
+
+        void Accept()
+        {
+            cout<<"Enter the elements : "<<"\n";
+
+            int iCnt = 0;
+            for(iCnt = 0; iCnt < iSize; iCnt++)
+            {
+                cin>>Arr[iCnt];
+            }
+        }
+
+        void Display()
+        {
+            cout<<"Elements of the array are : "<<"\n";
+            
+            int iCnt = 0;
+            for(iCnt = 0; iCnt < iSize; iCnt++)
+            {
+                cout<<Arr[iCnt]<<"\n";
+            }
+        }
+
+        int Summation()
+        {
+            
+            cout<<"Elements of the array are : "<<"\n";
+            
+            int iCnt = 0;
+            int iSum=0;
+
+            for(iCnt = 0; iCnt < iSize; iCnt++)
+            {
+                iSum=iSum+Arr[iCnt];
+            }
+            return iSum;
+        }
+};
+
+int main()
+{   
+    int iNo = 0;
+    int iRet = 0;
+
+    cout<<"Enter number of elements : "<<"\n";
+    cin>>iNo;
+
+    Array aobj(iNo);
+    aobj.Accept();
+    aobj.Display();
+    
+    iRet=aobj.Summation();
+    cout<<"Summation is:"<<iRet<<"\n";
+
+    
+    return 0;
+}
